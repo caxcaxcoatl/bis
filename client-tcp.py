@@ -3,6 +3,8 @@
 import socket
 import sys
 
+import bis_common
+
 CHUNK=1024
 
 def usage ():
@@ -10,20 +12,6 @@ def usage ():
 usage: bis local:port remote:port file
     """)
 
-def split_address(addr):
-    try:
-        a, p = addr.split(":")
-    except Exception as e:
-        print ("Address %s not valid: %s", addr, e)
-        sys.exit(1)
-
-    try:
-        p = int(p)
-    except Except as e:
-        print ("Port %s not valid: %s", p, e)
-        sys.exit(1)
-
-    return (a, p)
 
 if __name__ == "__main__":
     if len (sys.argv) != 4:
