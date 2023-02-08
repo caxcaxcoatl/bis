@@ -18,8 +18,8 @@ if __name__ == "__main__":
         usage()
         sys.exit(1)
 
-    local = split_addres(sys.argv[1])
-    remote = split_addres(sys.argv[2])
+    local = bis_common.split_address(sys.argv[1])
+    remote = bis_common.split_address(sys.argv[2])
     filename = sys.argv[3]
 
     with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -27,8 +27,8 @@ if __name__ == "__main__":
         print ("Client socket bound; press ENTER to connect and send file")
         print (s)
         input()
-        connect (remote)
-        print ("Connected to %s; starting transfer" % remote)
+        s.connect (remote)
+        print ("Connected to %s; starting transfer" % (remote, ))
         print (s)
         with open(filename, "rb") as f:
             total = 0

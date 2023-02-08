@@ -20,8 +20,8 @@ if __name__ == "__main__":
         usage()
         sys.exit(1)
 
-    local = split_address(sys.argv[1])
-    remote = split_address(sys.argv[2])
+    local = bis_common.split_address(sys.argv[1])
+    remote = bis_common.split_address(sys.argv[2])
     filename = sys.argv[3]
 
     with socket.socket (socket.AF_INET, socket.SOCK_STREAM) as s:
